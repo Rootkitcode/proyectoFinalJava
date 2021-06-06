@@ -1,9 +1,8 @@
 package CajaRegistradora.objetos;
-import java.util.*;
 
 public abstract class Productos {
 	private String nombre;
-	private int item;
+
 	private double precio;
 	private int cantidad;
 	
@@ -18,14 +17,7 @@ public abstract class Productos {
 		public void setNombre(String nombre) {
 			this.nombre = nombre;
 		}
-		public int getItem() {
-			return item;
-		}
-		public void setItem(int item) {
-			this.item = item;
-			System.out.println("No es posible registrar una cantidad menor a 0: ");
-			return;
-		}
+		
 		public double getPrecio() {
 			return precio;
 		}
@@ -45,7 +37,7 @@ public abstract class Productos {
 		}
 			@Override
 			public String toString() {
-				return "Producto: " + this.nombre + " - " + this.item + " -$" + this.precio;
+				return "Producto: " + this.nombre + " - "  + " -$" + this.precio + " + "+ this.cantidad;
 			}
 			public Productos clone() throws CloneNotSupportedException{
 				return (Productos) super.clone();

@@ -64,7 +64,7 @@ public class DataBase {
 			list[0] = productos[0].clone();
 			list[1] = productos[1].clone();
 			list[2] = productos[2].clone();
-			list[03] = productos[3].clone();
+			list[3] = productos[3].clone();
 		} catch (CloneNotSupportedException ignored) {}
 		return list;
 	}
@@ -88,7 +88,7 @@ public class DataBase {
 			return;
 			
 		}
-		oldProductos.setItem(oldProductos.getItem() + producto.getItem());
+		oldProductos.setCantidad(oldProductos.getCantidad() + producto.getCantidad());
 		oldProductos.setPrecio(producto.getPrecio());
 	}
 	
@@ -111,7 +111,7 @@ public class DataBase {
 			System.out.println("El producto no es valido");
 			return;
 		}
-		oldProductos.setItem(oldProductos.getItem() - valor);
+		oldProductos.setCantidad(oldProductos.getCantidad() - valor);
 	}
 	//agregar ventas
 	public void agregarVenta(Productos producto) {

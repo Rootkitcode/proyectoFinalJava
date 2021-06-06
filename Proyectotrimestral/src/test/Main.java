@@ -33,7 +33,7 @@ public class Main {
 				break;
 			case 2:
 				Vista.showVentasMenu();
-				Vista.showEntrarOpcion();
+				Vista.showProductOption();
 				ventas();
 				break;
 				
@@ -76,12 +76,14 @@ public class Main {
 			if(comprarOpcion >=1 && comprarOpcion <=4) {
 				comprarProducto(comprarOpcion);
 			}else if (comprarOpcion == 5) {
-					System.out.println("mensaje");
+					System.out.println("Producto no existe");
 			}else {
-				System.out.println("mensaje");
+				System.out.println("Opcion no valida");
 				}
 		} while (comprarOpcion != 5);
 			}
+	
+	
 		private static void ventas() {
 			// TODO Auto-generated method stub
 			int ventasOpcion;
@@ -89,7 +91,7 @@ public class Main {
 				Vista.showEntrarOpcion();
 				ventasOpcion = teclado.nextInt();
 				if(ventasOpcion >=1 && ventasOpcion <=4) {
-					ventasOpcion(ventasOpcion);
+					ventasProductos(ventasOpcion);
 				}else if (ventasOpcion == 5) {
 						System.out.println("mensaje");
 					} else {
@@ -97,10 +99,8 @@ public class Main {
 					}
 			} while (ventasOpcion != 5);
 			
-				
-			
-			
 		}
+	
 	
 	
 	private static void comprarProducto(int comprarOpcion) {
@@ -120,10 +120,23 @@ public class Main {
 			
 		case 4:
 			producto = new Lacteos("leche");
+			break; 
+			default:
+				System.out.println("Opcion no valida");
 		}
+		int cantidad = Vista.getCantidad(teclado);
+		double precio = Vista.getPrecio(teclado);
+		producto.setCantidad(cantidad);
+		producto.setPrecio(precio);
+		dataBase.agregarCompras(producto);
+		dataBase.comprarProducto(producto);
+		
 		
 	}
-	private static void ventasOpcion(int ventasOpcion) {
+
+		
+		
+	private static void ventasProductos(int ventasOpcion) {
 		// TODO Auto-generated method stub
 		Productos producto = null;
 		if(ventasOpcion < 1 || ventasOpcion > 4) {
