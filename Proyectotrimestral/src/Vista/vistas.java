@@ -1,5 +1,4 @@
 package Vista;
-import java.util.*;
 import java.util.List;
 import java.util.Scanner;
 
@@ -54,10 +53,10 @@ public class vistas {
 		
 		System.out.println(Color.BLACK);
 		System.out.println("***********************************************************************");
-		System.out.println("\t\t* PRODUCTO\t | Cantidad \t| Vr Unitario\t | Item\t | \t Vr Total*");
+		System.out.println("\t\t* PRODUCTO\t | Cantidad \t| Vr Unitario\t | \t Vr Total*");
 		System.out.println("***********************************************************************");
 		for ( Productos ventas : productos) {
-			System.out.println("\t\t|* " +ventas.getNombre() + "\t| " +ventas.getCantidad() + "\t\t|* "+ ventas.getPrecio()
+			System.out.println("\t\t* " +ventas.getNombre() + "\t| " +ventas.getCantidad() + "\t\t|* "+ ventas.getPrecio()
 			+ "\t\t|* " + ventas.getCantidad() * ventas.getPrecio() + "\t\t*");
 		}
 		System.out.println(Color.RESET);
@@ -72,11 +71,11 @@ public class vistas {
 
         System.out.println(Color.MAGENTA_BOLD);
         System.out.println("\t\t-----------------------------------------------------");
-        System.out.println("\t\t* PRODUCTO\t| Item\t|  Cantidad\t| Vr Unitario\t| Vr Total\t*");
+        System.out.println("\t\t* PRODUCTO\t|  Cantidad\t| Vr Unitario\t| Vr Total\t*");
         System.out.println("\t\t-----------------------------------------------------");
         for(Productos ventas: productos) {
-        	System.out.println("\t\t* " +ventas.getNombre() + "\t\t| " + ventas.getCantidad()
-        	+ "\t\t| "+ ventas.getPrecio() + "\t\t| " + ventas.getCantidad() * ventas.getPrecio());
+        	System.out.println("\t\t* " +ventas.getNombre() + "\t| " + ventas.getCantidad() + "\t\t| "+ ventas.getPrecio() + "\t\t\t| "
+        + ventas.getCantidad() * ventas.getPrecio()+"\t\t*");
         }
         System.out.println(Color.RESET);
 	}
@@ -92,8 +91,8 @@ public class vistas {
         System.out.println("\t\t-----------------------------------------------------");
         System.out.println("\t\t* PRODUCTO\t| Cantidad\t| Vr Unitario\t| Vr Total\t*");
         System.out.println("\t\t-----------------------------------------------------");
-        for (Productos ventas : productos) {
-            System.out.println("\t\t* "+ventas.getNombre()+"\t| "+ventas.getCantidad()+"\t\t| "+ventas.getPrecio()+"\t\t\t| "
+        for(Productos ventas: productos) {
+            System.out.println("\t\t* "+ventas.getNombre()+ "\t| "+ventas.getCantidad()+"\t\t| "+ventas.getPrecio()+"\t\t\t| "
         +ventas.getCantidad()*ventas.getPrecio()+"\t\t*");
         }
         System.out.println(Color.RESET);

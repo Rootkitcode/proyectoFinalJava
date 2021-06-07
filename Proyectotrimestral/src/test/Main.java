@@ -1,7 +1,6 @@
 package test;
 
 import java.util.Scanner;
-
 import CajaRegistradora.objetos.Productos;
 import CajaRegistradora.objetos.carnicos;
 import CajaRegistradora.objetos.Granos;
@@ -75,7 +74,7 @@ public class Main {
 			comprarOpcion = teclado.nextInt();
 			if(comprarOpcion >=1 && comprarOpcion <=4) {
 				comprarProducto(comprarOpcion);
-			}else if (comprarOpcion == 5) {
+			}else if (comprarOpcion == 6) {
 					System.out.println("Producto no existe");
 			}else {
 				System.out.println("Opcion no valida");
@@ -91,11 +90,11 @@ public class Main {
 				Vista.showEntrarOpcion();
 				ventasOpcion = teclado.nextInt();
 				if(ventasOpcion >=1 && ventasOpcion <=4) {
-					ventasProductos(ventasOpcion);
-				}else if (ventasOpcion == 5) {
-						System.out.println("mensaje");
+					ventaProducto(ventasOpcion);
+				}else if (ventasOpcion == 6) {
+						System.out.println("El producto no existe");
 					} else {
-						System.out.println("mensaje");
+						System.out.println("opcion no valida");
 					}
 			} while (ventasOpcion != 5);
 			
@@ -121,7 +120,7 @@ public class Main {
 		case 4:
 			producto = new Lacteos("leche");
 			break; 
-			default:
+		default:
 				System.out.println("Opcion no valida");
 		}
 		int cantidad = Vista.getCantidad(teclado);
@@ -136,24 +135,34 @@ public class Main {
 
 		
 		
-	private static void ventasProductos(int ventasOpcion) {
+	@SuppressWarnings("unused")
+	private static void ventaProducto(int ventasOpcion) {
 		// TODO Auto-generated method stub
 		Productos producto = null;
-		if(ventasOpcion < 1 || ventasOpcion > 4) {
-			System.out.println("El producto no existe");
-			return;
+		switch (ventasOpcion) {
+		case 1:
+			producto = new carnicos("Lomo cuadrado");
+			break;
+		case 2:
+			producto = new Verduras("zanahoria");
+			break;
+			
+		case 3:
+			producto = new Granos("Arroz");
+			break;
+			
+		case 4:
+			producto = new Lacteos("leche");
+			break; 
+		default:
+				System.out.println("Opcion no valida");
 		}
-		producto = dataBase.getByID(ventasOpcion -1);
-		if(producto == null) {
-			System.out.println("El producto es nulo");
-		}
-		System.out.println(producto);
 		int cantidad = Vista.getCantidad(teclado);
+		double precio = Vista.getPrecio(teclado);
 		producto.setCantidad(cantidad);
-		producto.setPrecio(producto.getPrecio() * 0.19);
-		System.out.println("\t\t\t Valor a recibir: " + producto.getCantidad() * producto.getPrecio());
+		producto.setPrecio(producto.getPrecio());
 		dataBase.agregarVenta(producto);
-		dataBase.ventasProductos(producto, cantidad);
+		dataBase.ventaProducto(producto);
 		
 	}
 	

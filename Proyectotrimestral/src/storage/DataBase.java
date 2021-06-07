@@ -1,6 +1,4 @@
 package storage;
-import java.util.*;
-
 import CajaRegistradora.objetos.carnicos;
 import CajaRegistradora.objetos.Verduras;
 
@@ -35,27 +33,6 @@ public class DataBase {
 		comprar = new ArrayList<>();
 		
 	}
-	//@Contract(pure = true)
-	private boolean isValidID(int id) {
-		return id >= 0 && id <=2;
-	}
-	// obtener el producto por el id
-	
-	public Productos getByID(int id) {
-		if (!isValidID(id)) {
-			System.out.println("El item de este producto no existe");
-			return null;
-		}
-		Productos r = null;
-		try {
-			r = productos[id].clone();
-		}
-		catch (CloneNotSupportedException e) {
-			e.printStackTrace();
-		}
-		return r;
-		
-	}
 	
 	//devolvemos todos los productos
 	public Productos[]getAll(){
@@ -83,7 +60,7 @@ public class DataBase {
 		case "Lacteos":
 			oldProductos = productos[3];
 			break;
-			default:
+		default:
 			System.out.println("El producto no es valido");
 			return;
 			
@@ -92,7 +69,7 @@ public class DataBase {
 		oldProductos.setPrecio(producto.getPrecio());
 	}
 	
-	public void ventasProductos(Productos producto, int valor) {
+	public void ventaProducto(Productos producto) {
 		Productos oldProductos;
 		switch (producto.getClass().getSimpleName()) {
 		case "carnicos":
@@ -107,11 +84,12 @@ public class DataBase {
 		case "Lacteos":
 			oldProductos = productos[3];
 			break;
-			default:
+		default:
 			System.out.println("El producto no es valido");
 			return;
 		}
-		oldProductos.setCantidad(oldProductos.getCantidad() - valor);
+		oldProductos.setCantidad(oldProductos.getCantidad() + producto.getCantidad());
+		oldProductos.setPrecio(producto.getPrecio());
 	}
 	//agregar ventas
 	public void agregarVenta(Productos producto) {
