@@ -33,6 +33,23 @@ public class DataBase {
 		comprar = new ArrayList<>();
 		
 	}
+	private boolean isValidID(int id) {
+		return id >=0 && id <=4;
+	}
+	public Productos getByID(int id) {
+		if(!isValidID(id)) {
+			System.out.println("Este Item no existe");
+			return null;
+		}
+		Productos r = null;
+		try {
+			r = productos[id].clone();
+			
+		}catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		return r;
+	}
 	
 	//devolvemos todos los productos
 	public Productos[]getAll(){
