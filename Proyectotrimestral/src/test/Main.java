@@ -135,7 +135,6 @@ public class Main {
 
 		
 		
-	@SuppressWarnings("unused")
 	private static void ventaProducto(int ventasOpcion) {
 		// TODO Auto-generated method stub
 		Productos producto = null;
@@ -160,7 +159,7 @@ public class Main {
 		int cantidad = Vista.getCantidad(teclado);
 		double precio = Vista.getPrecio(teclado);
 		producto.setCantidad(cantidad);
-		producto.setPrecio(producto.getPrecio());
+		producto.setPrecio(precio);
 		dataBase.agregarVenta(producto);
 		dataBase.ventaProducto(producto);
 		

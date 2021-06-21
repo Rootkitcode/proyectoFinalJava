@@ -47,7 +47,7 @@ public class vistas {
 	public void showInventario(Productos[]productos) {
 		System.out.println(Color.CYAN);
 		System.out.println("******************************************");
-		System.out.println("INVENTARIO");
+		System.out.println("=======================INVENTARIO=====================");
 		System.out.println("******************************************");
 		System.out.println(Color.RESET);
 		
@@ -56,8 +56,8 @@ public class vistas {
 		System.out.println("\t\t* PRODUCTO\t | Cantidad \t| Vr Unitario\t | \t Vr Total*");
 		System.out.println("***********************************************************************");
 		for ( Productos ventas : productos) {
-			System.out.println("\t\t* " +ventas.getNombre() + "\t| " +ventas.getCantidad() + "\t\t|* "+ ventas.getPrecio()
-			+ "\t\t|* " + ventas.getCantidad() * ventas.getPrecio() + "\t\t*");
+			System.out.println("\t\t* " + ventas.getNombre()+ "\t| " + ventas.getCantidad() + "\t\t|* "+ ventas.getPrecio()
+			+ "\t\t\t|* " + ventas.getCantidad() * ventas.getPrecio() + "\t\t*");
 		}
 		System.out.println(Color.RESET);
 		

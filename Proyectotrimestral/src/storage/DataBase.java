@@ -54,7 +54,7 @@ public class DataBase {
 		case "Verduras":
 			oldProductos = productos[1];
 			break;
-		case "granos":
+		case "Granos":
 			oldProductos = productos[2];
 			break;
 		case "Lacteos":
@@ -78,7 +78,7 @@ public class DataBase {
 		case "Verduras":
 			oldProductos = productos[1];
 			break;
-		case "granos":
+		case "Granos":
 			oldProductos = productos[2];
 			break;
 		case "Lacteos":
