@@ -15,6 +15,8 @@ public class DataBase {
 	private Productos[] productos;
 	private List<Productos> ventas;
 	private List<Productos>comprar;
+	private List<Productos>total;
+
 	
 	public DataBase() {
 		productos = new Productos[4];
@@ -52,7 +54,7 @@ public class DataBase {
 	}
 	
 	//devolvemos todos los productos
-	public Productos[]getAll(){
+	/*public Productos[]getAll(){
 		Productos[] list = new Productos[4];
 		try {
 			list[0] = productos[0].clone();
@@ -61,7 +63,7 @@ public class DataBase {
 			list[3] = productos[3].clone();
 		} catch (CloneNotSupportedException ignored) {}
 		return list;
-	}
+	}*/
 	public void comprarProducto(Productos producto) {
 		Productos oldProductos;
 		switch (producto.getClass().getSimpleName()) {
@@ -126,6 +128,18 @@ public class DataBase {
 		return comprar;
 	}
 	
+	public List<Productos> getInventarioVentas(){
+		return ventas;
+	}
+	public List<Productos> getInventarioCompras(){
+		return comprar;
+	}
+	public List<Productos> getTotal(){
+		return total;
+	}
 	
 
-}
+		
+	}
+	
+	

@@ -37,22 +37,31 @@ public class Main {
 				break;
 				
 			case 3:
-				Vista.showInventario(dataBase.getAll());
+				Vista.showInventarioVentas(dataBase.getInventarioVentas());
 				System.out.println("Digite una tecla para continuar...");
 				teclado.nextInt();
 				break;
-			case 4: 
+			case 4:
+				Vista.showInventarioCompras(dataBase.getInventarioCompras());
+				System.out.println("Digite una tecla para continuar...");
+				teclado.nextInt();
+				break;
+			case 5: 
 				Vista.showComprar(dataBase.getCompras());
 				System.out.println("Digite una tecla para continuar...");
 				teclado.nextInt();
 				break;
 				
-			case 5:
+			case 6:
 				Vista.showVentas(dataBase.getVenta());
 				System.out.println("Digite una tecla para continuar.... ");
 				teclado.nextInt();
 				break;
-			case 6:
+			case 7:
+				Vista.showCierreCaja(dataBase.getTotal());
+				System.out.println("Digite una tecla para continuar...");
+				teclado.nextInt();
+			case 8:
 				System.out.println("Gracias por utilizar nuestro sistema");
 				break;
 				
@@ -61,7 +70,7 @@ public class Main {
 				
 			}
 		}
-			while (oPrincipal != 6);
+			while (oPrincipal != 8);
 		}
 		
 	
@@ -99,7 +108,7 @@ public class Main {
 			} while (ventasOpcion != 5);
 			
 		}
-	
+		
 	
 	
 	private static void comprarProducto(int comprarOpcion) {

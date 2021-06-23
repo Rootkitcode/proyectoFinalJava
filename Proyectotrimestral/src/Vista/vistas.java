@@ -22,10 +22,12 @@ public class vistas {
 		System.out.println(Color.YELLOW);
 		System.out.println("\t\t\t 1. Comprar");
 		System.out.println("\t\t\t 2. Vender");
-		System.out.println("\t\t\t 3. Inventario");
-		System.out.println("\t\t\t 4. Compras");
-		System.out.println("\t\t\t 5. Ventas");
-		System.out.println("\t\t\t 6. Salir");
+		System.out.println("\t\t\t 3. Inventario Ventas");
+		System.out.println("\t\t\t 4. Inventario Compras");
+		System.out.println("\t\t\t 5. Compras");
+		System.out.println("\t\t\t 6. Ventas");
+		System.out.println("\t\t\t 7. Cierre caja");
+		System.out.println("\t\t\t 8. Salir");
 		System.out.println(Color.RESET);
 		showEntrarOpcion();
 	}
@@ -44,10 +46,10 @@ public class vistas {
 		System.out.println(Color.RESET);
 	}
 	
-	public void showInventario(Productos[]productos) {
+	public void showInventarioVentas(List<Productos> list) {
 		System.out.println(Color.CYAN);
 		System.out.println("******************************************");
-		System.out.println("=======================INVENTARIO=====================");
+		System.out.println("=======================INVENTARIO VENTAS=====================");
 		System.out.println("******************************************");
 		System.out.println(Color.RESET);
 		
@@ -55,7 +57,44 @@ public class vistas {
 		System.out.println("***********************************************************************");
 		System.out.println("\t\t* PRODUCTO\t | Cantidad \t| Vr Unitario\t | \t Vr Total*");
 		System.out.println("***********************************************************************");
-		for ( Productos ventas : productos) {
+		for ( Productos ventas : list) {
+			System.out.println("\t\t* " + ventas.getNombre()+ "\t | " + ventas.getCantidad() + "\t\t|* "+ ventas.getPrecio()
+			+ "\t\t\t|* " + ventas.getCantidad() * ventas.getPrecio() + "\t\t*");
+			
+		}
+		
+		
+		System.out.println(Color.RESET);
+		
+	}
+	
+	public void showCierreCaja(List<Productos> list) {
+		System.out.println(Color.CYAN);
+
+		for (Productos ventas : list) {
+			System.out.println("*************************************************************************");
+			System.out.println("======================= CIERRE DE CAJA INVENTARIO VENTAS =====================");
+			System.out.println("\\t\\t* PRODUCTO\t | Cantidad \\t| \\t Vr Total ventas*");
+			System.out.println("\t\t*"+ ventas.getNombre() + "\t| " + ventas.getCantidad()  + "\t| "
+			+ ventas.getCantidad()* ventas.getPrecio() );
+			System.out.println("*************************************************************************");
+		}
+		System.out.println(Color.RESET);
+	}
+	
+	
+	public void showInventarioCompras(List<Productos> list) {
+		System.out.println(Color.CYAN);
+		System.out.println("******************************************");
+		System.out.println("=======================INVENTARIO COMPRAS=====================");
+		System.out.println("******************************************");
+		System.out.println(Color.RESET);
+		
+		System.out.println(Color.BLACK);
+		System.out.println("***********************************************************************");
+		System.out.println("\t\t* PRODUCTO\t | Cantidad \t| Vr Unitario\t | \t Vr Total*");
+		System.out.println("***********************************************************************");
+		for ( Productos ventas : list) {
 			System.out.println("\t\t* " + ventas.getNombre()+ "\t| " + ventas.getCantidad() + "\t\t|* "+ ventas.getPrecio()
 			+ "\t\t\t|* " + ventas.getCantidad() * ventas.getPrecio() + "\t\t*");
 		}
